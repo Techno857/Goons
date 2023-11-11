@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlqal3udbv0hs"
-path="res://.godot/imported/goon walk animation.png-4ba63ec359b6136d8145b7375eb69f32.ctex"
+path="res://.godot/imported/goon walk animation.png-88ae5d71c6abd6bd5b3158e0aae715c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://goon walk animation.png"
-dest_files=["res://.godot/imported/goon walk animation.png-4ba63ec359b6136d8145b7375eb69f32.ctex"]
+source_file="res://Goon/goon walk animation.png"
+dest_files=["res://.godot/imported/goon walk animation.png-88ae5d71c6abd6bd5b3158e0aae715c2.ctex"]
 
 [params]
 
