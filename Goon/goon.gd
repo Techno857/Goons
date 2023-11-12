@@ -28,10 +28,19 @@ func updateAnimation():
 
 	animations.play("goon_walk_"+ direction)
 
+func singleAnimation():
+	if velocity.length() == 0:
+		animations.stop()
+	
+	else:
+		animations.play("goon_walk")
+
 func _physics_process(_delta):
 	handleInput()
 	move_and_slide()
-	updateAnimation()
+	# updateAnimation()
+	singleAnimation()
+	look_at(get_global_mouse_position())
 
 func _on_hurt_box_area_entered(area):
 	if area.has_method("openDoor") && area.doorClosed:

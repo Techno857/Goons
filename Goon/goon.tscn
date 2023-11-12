@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpsei3law0djw"]
+[gd_scene load_steps=16 format=3 uid="uid://cpsei3law0djw"]
 
 [ext_resource type="Script" path="res://Goon/goon.gd" id="1_k2qhm"]
 [ext_resource type="Texture2D" uid="uid://dlqal3udbv0hs" path="res://Goon/goon walk animation.png" id="2_swr1l"]
@@ -254,9 +254,26 @@ tracks/1/keys = {
 "values": [5.49779, 5.49779]
 }
 
+[sub_resource type="Animation" id="Animation_ma82l"]
+resource_name = "goon_walk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jh67n"]
 _data = {
 "RESET": SubResource("Animation_o51ci"),
+"goon_walk": SubResource("Animation_ma82l"),
 "goon_walk_down": SubResource("Animation_836p3"),
 "goon_walk_down_left": SubResource("Animation_xpv8d"),
 "goon_walk_down_right": SubResource("Animation_2xg1t"),
