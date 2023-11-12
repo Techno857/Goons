@@ -1,6 +1,8 @@
 extends Area2D
 
-@onready var tilemap = $"TileMap"
+@onready var tilemap = $"../TileMap"
+@onready var doorClosed = true
 
 func openDoor():
-	tilemap.set_layer_enabled(3, false)
+	doorClosed = false
+	tilemap.set_layer_enabled(2, false)

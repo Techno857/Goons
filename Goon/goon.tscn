@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpsei3law0djw"]
+[gd_scene load_steps=15 format=3 uid="uid://cpsei3law0djw"]
 
 [ext_resource type="Script" path="res://Goon/goon.gd" id="1_k2qhm"]
 [ext_resource type="Texture2D" uid="uid://dlqal3udbv0hs" path="res://Goon/goon walk animation.png" id="2_swr1l"]
@@ -271,11 +271,14 @@ _data = {
 radius = 7.0
 height = 22.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_536x8"]
+radius = 8.0
+height = 22.0
+
 [node name="Goon" type="CharacterBody2D"]
 texture_filter = 1
 rotation = 1.5708
 script = ExtResource("1_k2qhm")
-speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_swr1l")
@@ -289,3 +292,11 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.999996, -1)
 shape = SubResource("CapsuleShape2D_ys4p4")
+
+[node name="hurtBox" type="Area2D" parent="."]
+position = Vector2(0.999996, -1)
+
+[node name="DoorCollider" type="CollisionShape2D" parent="hurtBox"]
+shape = SubResource("CapsuleShape2D_536x8")
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

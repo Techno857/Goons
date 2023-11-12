@@ -1301,7 +1301,7 @@ sources/10 = SubResource("TileSetAtlasSource_jysv5")
 sources/13 = SubResource("TileSetAtlasSource_rtrso")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pwcb"]
-size = Vector2(29, 36)
+size = Vector2(24, 7)
 
 [node name="World" type="Node2D"]
 
@@ -1326,15 +1326,15 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(589827, 10, 196608, 589826, 10, 131072)
 
-[node name="Door" type="Area2D" parent="TileMap"]
-script = ExtResource("10_pftlj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Door"]
-position = Vector2(49.5, 155)
-shape = SubResource("RectangleShape2D_8pwcb")
-
 [node name="Goon" parent="." instance=ExtResource("2_spt0g")]
 position = Vector2(40.5619, 28.5619)
 
 [node name="Camera2D" type="Camera2D" parent="Goon"]
 zoom = Vector2(4, 4)
+
+[node name="Door" type="Area2D" parent="."]
+script = ExtResource("10_pftlj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(48, 157.5)
+shape = SubResource("RectangleShape2D_8pwcb")
