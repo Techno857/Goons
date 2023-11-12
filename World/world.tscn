@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bcrhc7tbbecql"]
+[gd_scene load_steps=26 format=3 uid="uid://bcrhc7tbbecql"]
 
 [ext_resource type="Texture2D" uid="uid://j381vd6r3p44" path="res://art/a_building_i_hope_this_works_.png" id="1_envmi"]
 [ext_resource type="Texture2D" uid="uid://dwf16gdbemcvh" path="res://art/D (for release).png" id="2_7id83"]
@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ddw2svyj2tn5c" path="res://art/ground/road1.png" id="6_8pcrd"]
 [ext_resource type="Texture2D" uid="uid://tf0xulq7rxbl" path="res://art/ground/ground sidewalk.png" id="7_pj4hh"]
 [ext_resource type="Script" path="res://world/frontdoor.gd" id="10_pftlj"]
-[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/suppressed_pistol.png" id="12_x03u2"]
+[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/boolet.png" id="12_foqgr"]
+[ext_resource type="PackedScene" uid="uid://dufxqb3wdk8jk" path="res://SuppPistol/sup_pistol.tscn" id="13_bn5vh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6spj"]
 texture = ExtResource("1_envmi")
@@ -1403,6 +1404,8 @@ position = Vector2(48, 157.5)
 shape = SubResource("RectangleShape2D_8pwcb")
 
 [node name="Bullet" type="RigidBody2D" parent="."]
+can_sleep = false
+freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
 position = Vector2(0, -4.76837e-08)
@@ -1411,4 +1414,9 @@ shape = SubResource("RectangleShape2D_4mape")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bullet"]
 scale = Vector2(0.5, 0.2)
-texture = ExtResource("12_x03u2")
+texture = ExtResource("12_foqgr")
+
+[node name="SupPistol" parent="." instance=ExtResource("13_bn5vh")]
+position = Vector2(29, 131)
+rotation = -0.595157
+scale = Vector2(0.8, 0.8)

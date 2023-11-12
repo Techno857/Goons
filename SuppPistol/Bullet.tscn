@@ -1,16 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxtatiebmk7ye"]
 
-[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/suppressed_pistol.png" id="1_bbdu4"]
+[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/boolet.png" id="1_pplo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mape"]
+size = Vector2(10, 13.3333)
 
 [node name="Bullet" type="RigidBody2D"]
+texture_filter = 1
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.76837e-08)
+position = Vector2(0, -0.5)
 scale = Vector2(0.4, 0.075)
 shape = SubResource("RectangleShape2D_4mape")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.2)
-texture = ExtResource("1_bbdu4")
+texture = ExtResource("1_pplo2")

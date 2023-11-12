@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dln1wy7v6salc"
-path="res://.godot/imported/suppressed_pistol.png-b9230113e1598d87a6b306b7579a5778.ctex"
+path="res://.godot/imported/boolet.png-429f8a1c1d0710fd5d912f4582513d81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/suppressed_pistol.png"
-dest_files=["res://.godot/imported/suppressed_pistol.png-b9230113e1598d87a6b306b7579a5778.ctex"]
+source_file="res://art/boolet.png"
+dest_files=["res://.godot/imported/boolet.png-429f8a1c1d0710fd5d912f4582513d81.ctex"]
 
 [params]
 

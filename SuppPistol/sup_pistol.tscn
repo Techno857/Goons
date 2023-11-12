@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dufxqb3wdk8jk"]
+
+[ext_resource type="Script" path="res://SuppPistol/sup_pistol.gd" id="1_gojjh"]
+[ext_resource type="Texture2D" uid="uid://ca3kbyqbh00fk" path="res://art/suppressed pistol.png" id="1_o3c6y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiooa"]
+size = Vector2(16, 8)
+
+[node name="SupPistol" type="Area2D"]
+script = ExtResource("1_gojjh")
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_o3c6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yiooa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
