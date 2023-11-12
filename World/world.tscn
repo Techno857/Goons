@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcrhc7tbbecql"]
+[gd_scene load_steps=25 format=3 uid="uid://bcrhc7tbbecql"]
 
 [ext_resource type="Texture2D" uid="uid://j381vd6r3p44" path="res://art/a_building_i_hope_this_works_.png" id="1_envmi"]
 [ext_resource type="Texture2D" uid="uid://dwf16gdbemcvh" path="res://art/D (for release).png" id="2_7id83"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ddw2svyj2tn5c" path="res://art/ground/road1.png" id="6_8pcrd"]
 [ext_resource type="Texture2D" uid="uid://tf0xulq7rxbl" path="res://art/ground/ground sidewalk.png" id="7_pj4hh"]
 [ext_resource type="Script" path="res://world/frontdoor.gd" id="10_pftlj"]
+[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/suppressed_pistol.png" id="12_x03u2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6spj"]
 texture = ExtResource("1_envmi")
@@ -1363,6 +1364,8 @@ sources/13 = SubResource("TileSetAtlasSource_rtrso")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8pwcb"]
 size = Vector2(24, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mape"]
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1398,3 +1401,14 @@ script = ExtResource("10_pftlj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(48, 157.5)
 shape = SubResource("RectangleShape2D_8pwcb")
+
+[node name="Bullet" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+position = Vector2(0, -4.76837e-08)
+scale = Vector2(0.4, 0.075)
+shape = SubResource("RectangleShape2D_4mape")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet"]
+scale = Vector2(0.5, 0.2)
+texture = ExtResource("12_x03u2")
