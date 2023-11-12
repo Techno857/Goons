@@ -1,6 +1,7 @@
 extends Area2D
 
 var gunAcquired = false
+var magSize = 20
 
 func pickUpGun():
 	gunAcquired = true

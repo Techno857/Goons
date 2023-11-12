@@ -24,6 +24,10 @@ func updateAnimation():
 		$GoonGunCollision.show()
 	else:
 		animations.play("goon_walk")
+		$GoonGun.hide()
+		$GoonGunCollision.hide()
+		$Goon.show()
+		$GoonCollision.show()
 	
 
 	# # Diagonal movements
@@ -48,8 +52,12 @@ func _physics_process(_delta):
 	updateAnimation()
 	look_at(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("LMB") && pistol.gunAcquired:
+	if Input.is_action_just_pressed("LMB") && pistol.gunAcquired && pistol.magSize > 0:
 		fire()
+		pistol.magSize -= 1
+		
+	if pistol.magSize == 0:
+		pistol.gunAcquired = false
 
 func _on_hurt_box_area_entered(area):
 	if area.has_method("openDoor") && area.doorClosed:
