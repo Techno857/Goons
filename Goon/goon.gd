@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var speed: int = 200
 @onready var animations = $AnimationPlayer
 @onready var pistol = $"../SupPistol"
+@onready var knife = $Knife
+@onready var knifeTimer = $Knife/knifeTimer
 @onready var direction = "right"
 
 
@@ -58,6 +60,9 @@ func _physics_process(_delta):
 		
 	if pistol.magSize == 0:
 		pistol.gunAcquired = false
+		
+	if Input.is_action_just_pressed("RMB") && pistol.gunAcquired == false:
+		_on_knife_timer_timeout()
 
 func _on_hurt_box_area_entered(area):
 	if area.has_method("openDoor") && area.doorClosed:
@@ -70,3 +75,10 @@ func fire():
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.linear_velocity = Vector2(bullet_speed,0).rotated(rotation)
 	get_tree().get_root().call_deferred("add_child",bullet_instance)
+
+
+func _on_knife_timer_timeout():
+	knifeTimer.start()
+	knife.visible = true
+	await knifeTimer.timeout
+	knife.visible = false
