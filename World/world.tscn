@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bcrhc7tbbecql"]
+[gd_scene load_steps=33 format=3 uid="uid://be5uhwrtkmvi7"]
 
 [ext_resource type="Texture2D" uid="uid://j381vd6r3p44" path="res://art/a_building_i_hope_this_works_.png" id="1_envmi"]
 [ext_resource type="Texture2D" uid="uid://dwf16gdbemcvh" path="res://art/D (for release).png" id="2_7id83"]
@@ -13,9 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://cgc2poytaqfe1" path="res://art/boss_and_shitty_furt_sheet.png" id="6_bbxdx"]
 [ext_resource type="Texture2D" uid="uid://38umd5hxrov1" path="res://art/toilet.png" id="7_pat7w"]
 [ext_resource type="Texture2D" uid="uid://tf0xulq7rxbl" path="res://art/ground/ground sidewalk.png" id="7_pj4hh"]
-[ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://art/pillars_bruh_building.png" id="8_mf3ow"]
+[ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://Basement/pillars_bruh_building.png" id="8_mf3ow"]
 [ext_resource type="Script" path="res://world/frontdoor.gd" id="10_pftlj"]
 [ext_resource type="PackedScene" uid="uid://dufxqb3wdk8jk" path="res://SuppPistol/sup_pistol.tscn" id="13_bn5vh"]
+[ext_resource type="PackedScene" uid="uid://bw1ixwgd3dk4k" path="res://Grunts/grunt.tscn" id="17_va8ls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6spj"]
 texture = ExtResource("1_envmi")
@@ -1823,3 +1824,6 @@ shape = SubResource("RectangleShape2D_8pwcb")
 position = Vector2(29, 131)
 rotation = -0.595157
 scale = Vector2(0.8, 0.8)
+
+[node name="Grunt" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(90, 76)

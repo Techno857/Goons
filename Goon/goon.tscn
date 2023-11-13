@@ -329,6 +329,7 @@ height = 22.0
 [node name="Goon" type="CharacterBody2D"]
 texture_filter = 1
 rotation = 1.5708
+collision_layer = 3
 script = ExtResource("1_k2qhm")
 
 [node name="Goon" type="Sprite2D" parent="."]
