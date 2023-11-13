@@ -4,16 +4,13 @@ extends CharacterBody2D
 @onready var animations = $AnimationPlayer
 @onready var pistol = $"../SupPistol"
 @onready var direction = "right"
+
 #----------Enemy_Stuff-------------#
 var enemy_inattackrange = false
 var enemy_cooldown = true
 var health = 100
 var player_alive = true
-#-------------Attack_shid--------------------#
-var gun_equipped = true
-var gun_cooldown = true
-#---------Combat-----------------#
-var attack_ip = false
+
 #--------------------------------#
 var bullet_speed = 500
 var bullet = preload("res://bullet/Bullet.tscn")
@@ -44,23 +41,20 @@ func _physics_process(_delta):
 	updateAnimation()
 	look_at(get_global_mouse_position())
 	enemy_attack()
+	
 	if health <= 0:
 		player_alive = false
 		get_tree().change_scene_to_file("res://World/world.tscn")
 		print("player dead")
 		
-	if pistol.magSize == 0:
-		pistol.gunAcquired = false
-		
-	var mouse_pos = get_global_mouse_position()
-	$Muzzle.look_at(mouse_pos)
-	
 	if Input.is_action_just_pressed("LMB") && pistol.gunAcquired && pistol.magSize > 0:
 		fire()
 		pistol.magSize -= 1
 		
+	if pistol.magSize == 0:
+		pistol.gunAcquired = false
 
-func _on_hurt_box_area_entered(area):
+func _on_DoorHitBox_area_entered(area):
 	if area.has_method("openDoor") && area.doorClosed:
 		area.openDoor()
 
@@ -72,11 +66,9 @@ func fire():
 	bullet_instance.linear_velocity = Vector2(bullet_speed,0).rotated(rotation)
 	get_tree().get_root().call_deferred("add_child",bullet_instance)
 
-
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("grunt"):
 		enemy_inattackrange = true
-
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("grunt"):
@@ -89,7 +81,5 @@ func enemy_attack():
 		$attack_cooldown.start()
 		print(health)
 
-
 func _on_attack_cooldown_timeout():
 	enemy_cooldown = true
-

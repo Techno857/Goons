@@ -359,11 +359,11 @@ visible = false
 position = Vector2(-6, -0.999978)
 shape = SubResource("CapsuleShape2D_hf7u5")
 
-[node name="hurtBox" type="Area2D" parent="."]
+[node name="DoorHitbox" type="Area2D" parent="."]
 visible = false
 position = Vector2(0.999996, -1)
 
-[node name="DoorCollider" type="CollisionShape2D" parent="hurtBox"]
+[node name="DoorCollider" type="CollisionShape2D" parent="DoorHitbox"]
 shape = SubResource("CapsuleShape2D_536x8")
 
 [node name="Muzzle" type="Marker2D" parent="."]
@@ -377,7 +377,7 @@ shape = SubResource("CircleShape2D_kagvj")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
-[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="DoorHitbox" to="." method="_on_DoorHitBox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

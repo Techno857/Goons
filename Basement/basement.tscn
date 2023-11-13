@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b0kihq0dtj1gj" path="res://art/furniture/furniteture_lol.png" id="6_88vu2"]
 [ext_resource type="Texture2D" uid="uid://cgc2poytaqfe1" path="res://art/boss_and_shitty_furt_sheet.png" id="7_baxg6"]
 [ext_resource type="Texture2D" uid="uid://38umd5hxrov1" path="res://art/toilet.png" id="8_ydlb2"]
-[ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://Basement/pillars_bruh_building.png" id="9_70l3f"]
+[ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://art/pillars_bruh_building.png" id="9_70l3f"]
 [ext_resource type="Texture2D" uid="uid://cmhg7f6mbon7v" path="res://art/buildings/big wall.png" id="10_x1vr4"]
 [ext_resource type="Texture2D" uid="uid://b4i154gnx0u41" path="res://art/buildings/building3.png" id="11_5gek7"]
 [ext_resource type="Texture2D" uid="uid://ddw2svyj2tn5c" path="res://art/ground/road1.png" id="12_74kd0"]

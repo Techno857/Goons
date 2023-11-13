@@ -23,7 +23,6 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.play("idle")
 		
-		
 func _on_detection_area_body_entered(body):
 	player = body
 	player_chase = true
@@ -36,12 +35,9 @@ func _on_detection_area_body_exited(body):
 func grunt():
 	pass
 
-
 func _on_enemy_hitbox_body_entered(body):
-	if body.has_method("pierced"):
+	if body.has_method("pierce"):
 		queue_free()
-			
-
 
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
