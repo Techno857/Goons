@@ -105,3 +105,8 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout():
 	enemy_cooldown = true
+
+
+func _on_basement_entry_body_entered(body):
+	if body.has_method("handleInput"):
+		get_tree().change_scene_to_file("res://Basement/basement.tscn")
