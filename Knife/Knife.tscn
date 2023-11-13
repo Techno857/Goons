@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhg5kopgf5q1l"]
+[gd_scene load_steps=4 format=3 uid="uid://bhg5kopgf5q1l"]
 
 [ext_resource type="Texture2D" uid="uid://10noga32br5u" path="res://Knife/knife.png" id="1_6oyo4"]
+[ext_resource type="Script" path="res://Knife/Knife.gd" id="1_qfer2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0jrf"]
 size = Vector2(13, 8)
 
 [node name="Knife" type="Area2D"]
+collision_mask = 0
+script = ExtResource("1_qfer2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 0)

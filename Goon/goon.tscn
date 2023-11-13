@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cpsei3law0djw"]
+[gd_scene load_steps=22 format=3 uid="uid://cpsei3law0djw"]
 
 [ext_resource type="Script" path="res://Goon/goon.gd" id="1_k2qhm"]
 [ext_resource type="Texture2D" uid="uid://cec6xdthr11vm" path="res://Goon/gun_goon_walk.png" id="2_j8nwx"]
 [ext_resource type="Texture2D" uid="uid://dlqal3udbv0hs" path="res://Goon/goon walk animation.png" id="2_swr1l"]
+[ext_resource type="AudioStream" uid="uid://d0fnd7l6y40e5" path="res://SuppPistol/suppresor.mp3" id="4_1vbu4"]
 [ext_resource type="PackedScene" uid="uid://bhg5kopgf5q1l" path="res://Knife/Knife.tscn" id="4_1yy6l"]
+[ext_resource type="AudioStream" uid="uid://deakkdjpvgg4d" path="res://Knife/stab.mp3" id="6_dl03c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ys4p4"]
 radius = 7.0
@@ -366,7 +368,8 @@ shape = SubResource("CapsuleShape2D_536x8")
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(15, 2.99995)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SuppGunshot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1vbu4")
 
 [node name="Knife" parent="." instance=ExtResource("4_1yy6l")]
 visible = false
@@ -376,5 +379,8 @@ position = Vector2(11, -7.00004)
 wait_time = 0.3
 one_shot = true
 
+[node name="KnifeStab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dl03c")
+
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="timeout" from="Knife/knifeTimer" to="." method="_on_knife_timer_timeout"]
+[connection signal="area_entered" from="Knife" to="." method="_on_knife_area_entered"]
