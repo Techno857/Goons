@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw1ixwgd3dk4k"]
+[gd_scene load_steps=18 format=3 uid="uid://bw1ixwgd3dk4k"]
 
 [ext_resource type="Texture2D" uid="uid://7q5uxvm4gt56" path="res://Grunts/good_guy_grunts.png" id="1_mbngh"]
 [ext_resource type="Script" path="res://Grunts/Grunt.gd" id="1_qlafc"]
@@ -10,6 +10,22 @@ region = Rect2(0, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_eyead"]
 atlas = ExtResource("1_mbngh")
 region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7fe4"]
+atlas = ExtResource("1_mbngh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88vfa"]
+atlas = ExtResource("1_mbngh")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffhx5"]
+atlas = ExtResource("1_mbngh")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlo2g"]
+atlas = ExtResource("1_mbngh")
+region = Rect2(18, 1, 39, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oj8fw"]
 atlas = ExtResource("1_mbngh")
@@ -42,6 +58,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r7fe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88vfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffhx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlo2g")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_oj8fw")
 }, {
 "duration": 1.0,
@@ -59,11 +92,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h70s1"]
-radius = 38.1182
+radius = 21.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmagk"]
+size = Vector2(81, 43)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4oqlk"]
 radius = 7.0
 height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8itgp"]
+radius = 13.0384
 
 [node name="Grunt" type="CharacterBody2D"]
 script = ExtResource("1_qlafc")
@@ -72,7 +111,6 @@ script = ExtResource("1_qlafc")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_yrslj")
 animation = &"walk"
-frame_progress = 0.66881
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2
@@ -81,9 +119,21 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_h70s1")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(28.5, -0.5)
+shape = SubResource("RectangleShape2D_vmagk")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_4oqlk")
 
+[node name="enemy_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_8itgp")
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]

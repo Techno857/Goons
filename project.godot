@@ -14,6 +14,10 @@ config/name="Goons"
 run/main_scene="res://World/world.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
+[autoload]
+
+Global="*res://script/global.gd"
+
 [dotnet]
 
 project/assembly_name="Goons"
