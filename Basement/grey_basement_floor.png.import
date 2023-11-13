@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ehexglx4q34"
-path="res://.godot/imported/pillars_bruh_building.png-acaa7908629ccf1c979e526db2b3c987.ctex"
+uid="uid://caovnsn810018"
+path="res://.godot/imported/grey_basement_floor.png-a6552c7b026117abffc6803877b5bbcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Basement/pillars_bruh_building.png"
-dest_files=["res://.godot/imported/pillars_bruh_building.png-acaa7908629ccf1c979e526db2b3c987.ctex"]
+source_file="res://Basement/grey_basement_floor.png"
+dest_files=["res://.godot/imported/grey_basement_floor.png-a6552c7b026117abffc6803877b5bbcf.ctex"]
 
 [params]
 

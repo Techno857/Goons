@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cgc2poytaqfe1" path="res://art/boss_and_shitty_furt_sheet.png" id="6_bbxdx"]
 [ext_resource type="Texture2D" uid="uid://38umd5hxrov1" path="res://art/toilet.png" id="7_pat7w"]
 [ext_resource type="Texture2D" uid="uid://tf0xulq7rxbl" path="res://art/ground/ground sidewalk.png" id="7_pj4hh"]
-[ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://art/pillars_bruh_building.png" id="8_mf3ow"]
+[ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://Basement/pillars_bruh_building.png" id="8_mf3ow"]
 [ext_resource type="Script" path="res://world/frontdoor.gd" id="10_pftlj"]
 [ext_resource type="PackedScene" uid="uid://dufxqb3wdk8jk" path="res://SuppPistol/sup_pistol.tscn" id="13_bn5vh"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ehexglx4q34"
-path="res://.godot/imported/pillars_bruh_building.png-acaa7908629ccf1c979e526db2b3c987.ctex"
+uid="uid://deptqv7xuh4db"
+path="res://.godot/imported/a_red_bed_and_a_crate.png-14138780d0d72a7c82da98089b23bb1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Basement/pillars_bruh_building.png"
-dest_files=["res://.godot/imported/pillars_bruh_building.png-acaa7908629ccf1c979e526db2b3c987.ctex"]
+source_file="res://Basement/a_red_bed_and_a_crate.png"
+dest_files=["res://.godot/imported/a_red_bed_and_a_crate.png-14138780d0d72a7c82da98089b23bb1b.ctex"]
 
 [params]
 
