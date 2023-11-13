@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3g7ewdtp8tv1"]
+
+[ext_resource type="Script" path="res://bullet/Bullet.gd" id="1_3eblo"]
+[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/boolet.png" id="2_nmycb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63l3h"]
+size = Vector2(4, 3)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qmvbl"]
+radius = 1.99839
+height = 5.99517
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_3eblo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_63l3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_nmycb")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+rotation = -1.61094
+shape = SubResource("CapsuleShape2D_qmvbl")
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

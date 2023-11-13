@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cafkmvd088yfp"]
+[gd_scene load_steps=33 format=3 uid="uid://de1wok6mbnnu7"]
 
 [ext_resource type="Texture2D" uid="uid://j381vd6r3p44" path="res://art/a_building_i_hope_this_works_.png" id="1_envmi"]
 [ext_resource type="Texture2D" uid="uid://dwf16gdbemcvh" path="res://art/D (for release).png" id="2_7id83"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c5ehexglx4q34" path="res://Basement/pillars_bruh_building.png" id="8_mf3ow"]
 [ext_resource type="Script" path="res://world/frontdoor.gd" id="10_pftlj"]
 [ext_resource type="PackedScene" uid="uid://dufxqb3wdk8jk" path="res://SuppPistol/sup_pistol.tscn" id="13_bn5vh"]
+[ext_resource type="PackedScene" uid="uid://bw1ixwgd3dk4k" path="res://Grunts/grunt.tscn" id="17_va8ls"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6spj"]
 texture = ExtResource("1_envmi")
@@ -1823,3 +1824,31 @@ shape = SubResource("RectangleShape2D_8pwcb")
 position = Vector2(29, 131)
 rotation = -0.595157
 scale = Vector2(0.8, 0.8)
+
+[node name="Grunt" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(90, 76)
+rotation = -2.53936
+
+[node name="Grunt2" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(294, 28)
+rotation = -5.79829
+
+[node name="Grunt3" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(80, -89)
+rotation = 0.588316
+
+[node name="Grunt4" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(-65, -103)
+rotation = -0.637357
+
+[node name="Grunt5" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(351, -103)
+rotation = -0.0606944
+
+[node name="Grunt6" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(-1, -253)
+rotation = 1.24764
+
+[node name="Grunt7" parent="." instance=ExtResource("17_va8ls")]
+position = Vector2(364, -235)
+rotation = 2.90766

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpsei3law0djw"]
+[gd_scene load_steps=20 format=3 uid="uid://cpsei3law0djw"]
 
 [ext_resource type="Script" path="res://Goon/goon.gd" id="1_k2qhm"]
 [ext_resource type="Texture2D" uid="uid://cec6xdthr11vm" path="res://Goon/gun_goon_walk.png" id="2_j8nwx"]
@@ -329,9 +329,13 @@ height = 26.0
 radius = 8.0
 height = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kagvj"]
+radius = 13.1529
+
 [node name="Goon" type="CharacterBody2D"]
 texture_filter = 1
 rotation = 1.5708
+collision_layer = 3
 script = ExtResource("1_k2qhm")
 
 [node name="Goon" type="Sprite2D" parent="."]
@@ -358,29 +362,25 @@ visible = false
 position = Vector2(-6, -0.999978)
 shape = SubResource("CapsuleShape2D_hf7u5")
 
-[node name="hurtBox" type="Area2D" parent="."]
+[node name="DoorHitbox" type="Area2D" parent="."]
 visible = false
 position = Vector2(0.999996, -1)
 
-[node name="DoorCollider" type="CollisionShape2D" parent="hurtBox"]
+[node name="DoorCollider" type="CollisionShape2D" parent="DoorHitbox"]
 shape = SubResource("CapsuleShape2D_536x8")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(15, 2.99995)
 
-[node name="SuppGunshot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_1vbu4")
+[node name="player_hitbox" type="Area2D" parent="."]
 
-[node name="Knife" parent="." instance=ExtResource("4_1yy6l")]
-visible = false
-position = Vector2(11, -7.00004)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(-3.61999e-06, -1)
+shape = SubResource("CircleShape2D_kagvj")
 
-[node name="knifeTimer" type="Timer" parent="Knife"]
-wait_time = 0.3
-one_shot = true
+[node name="attack_cooldown" type="Timer" parent="."]
 
-[node name="KnifeStab" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_dl03c")
-
-[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
-[connection signal="area_entered" from="Knife" to="." method="_on_knife_area_entered"]
+[connection signal="area_entered" from="DoorHitbox" to="." method="_on_DoorHitBox_area_entered"]
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

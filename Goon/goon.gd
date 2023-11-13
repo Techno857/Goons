@@ -7,9 +7,15 @@ extends CharacterBody2D
 @onready var knifeTimer = $Knife/knifeTimer
 @onready var direction = "right"
 
+#----------Enemy_Stuff-------------#
+var enemy_inattackrange = false
+var enemy_cooldown = true
+var health = 100
+var player_alive = true
 
+#--------------------------------#
 var bullet_speed = 500
-var bullet = preload("res://SuppPistol/Bullet.tscn")
+var bullet = preload("res://bullet/Bullet.tscn")
 
 func handleInput():
 	var moveDirection = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
@@ -30,32 +36,30 @@ func updateAnimation():
 		$GoonGunCollision.hide()
 		$Goon.show()
 		$GoonCollision.show()
-
+	
 func _physics_process(_delta):
-
 	handleInput()
 	move_and_slide()
 	updateAnimation()
 	look_at(get_global_mouse_position())
+	enemy_attack()
 	
+	if health <= 0:
+		player_alive = false
+		get_tree().change_scene_to_file("res://World/world.tscn")
+		print("player dead")
+		
 	if Input.is_action_just_pressed("LMB") && pistol.gunAcquired && pistol.magSize > 0:
 		fire()
 		pistol.magSize -= 1
 		
 	if pistol.magSize == 0:
 		pistol.gunAcquired = false
-		
-	if Input.is_action_just_pressed("RMB") && pistol.gunAcquired == false:
-		knifeTimer.start()
-		knife.visible = true
-		knife.set_collision_mask_value(1, true)
-		$KnifeStab.play()
-		
-		await knifeTimer.timeout
-		
-		knife.set_collision_mask_value(1, false)
-		knife.visible = false
-		
+
+func _on_DoorHitBox_area_entered(area):
+	if area.has_method("openDoor") && area.doorClosed:
+		area.openDoor()
+
 func fire():
 	var bullet_instance = bullet.instantiate() 
 	bullet_instance.position = get_global_position()
@@ -63,12 +67,21 @@ func fire():
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.linear_velocity = Vector2(bullet_speed,0).rotated(rotation)
 	get_tree().get_root().call_deferred("add_child",bullet_instance)
-	$SuppGunshot.play()
-	
-func _on_hurt_box_area_entered(area):
-	if area.has_method("openDoor") && area.doorClosed:
-		area.openDoor()
 
-func _on_knife_area_entered(area):
-	if area.has_method("openDoor") && area.doorClosed:
-		area.openDoor()
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("grunt"):
+		enemy_inattackrange = true
+
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("grunt"):
+		enemy_inattackrange = false
+
+func enemy_attack():
+	if enemy_inattackrange and enemy_cooldown == true:
+		health = 0
+		enemy_cooldown = false
+		$attack_cooldown.start()
+		print(health)
+
+func _on_attack_cooldown_timeout():
+	enemy_cooldown = true
