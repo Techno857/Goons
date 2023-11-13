@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var pistol = $"../SupPistol"
 @onready var knife = $Knife
 @onready var knifeTimer = $Knife/knifeTimer
+
 @onready var direction = "right"
 
 #----------Enemy_Stuff-------------#
@@ -55,11 +56,28 @@ func _physics_process(_delta):
 		
 	if pistol.magSize == 0:
 		pistol.gunAcquired = false
+		
+	if Input.is_action_just_pressed("RMB") && pistol.gunAcquired == false:
+		knifeTimer.start()
+		knife.visible = true
+		knife.set_collision_mask_value(1, true)
+		$KnifeStab.play()
+		
+		await knifeTimer.timeout
+		
+		knife.set_collision_mask_value(1, false)
+		knife.visible = false
 
 func _on_DoorHitBox_area_entered(area):
 	if area.has_method("openDoor") && area.doorClosed:
 		area.openDoor()
-
+	if area.has_method("pierce") && area.doorClosed:
+		area.openDoor()
+		
+func _on_knife_body_entered(body):
+	if body.has_method("grunt"):
+		body.queue_free()
+	
 func fire():
 	var bullet_instance = bullet.instantiate() 
 	bullet_instance.position = get_global_position()
@@ -67,7 +85,9 @@ func fire():
 	bullet_instance.rotation_degrees = rotation_degrees
 	bullet_instance.linear_velocity = Vector2(bullet_speed,0).rotated(rotation)
 	get_tree().get_root().call_deferred("add_child",bullet_instance)
-
+	$SuppGunShot.play()
+	
+#--------------------------------#
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("grunt"):
 		enemy_inattackrange = true

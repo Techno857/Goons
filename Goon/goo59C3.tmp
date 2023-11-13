@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpsei3law0djw"]
+[gd_scene load_steps=22 format=3 uid="uid://cpsei3law0djw"]
 
 [ext_resource type="Script" path="res://Goon/goon.gd" id="1_k2qhm"]
 [ext_resource type="Texture2D" uid="uid://cec6xdthr11vm" path="res://Goon/gun_goon_walk.png" id="2_j8nwx"]
 [ext_resource type="Texture2D" uid="uid://dlqal3udbv0hs" path="res://Goon/goon walk animation.png" id="2_swr1l"]
-[ext_resource type="AudioStream" uid="uid://d0fnd7l6y40e5" path="res://SuppPistol/suppresor.mp3" id="4_hivm2"]
 [ext_resource type="PackedScene" uid="uid://bhg5kopgf5q1l" path="res://Knife/Knife.tscn" id="4_k2llv"]
 [ext_resource type="AudioStream" uid="uid://deakkdjpvgg4d" path="res://Knife/stab.mp3" id="5_pxste"]
 
@@ -372,9 +371,6 @@ shape = SubResource("CapsuleShape2D_536x8")
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(15, 2.99995)
 
-[node name="SuppGunShot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_hivm2")
-
 [node name="player_hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
@@ -398,4 +394,3 @@ stream = ExtResource("5_pxste")
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="body_entered" from="Knife" to="." method="_on_knife_body_entered"]

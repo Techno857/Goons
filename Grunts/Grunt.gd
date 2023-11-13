@@ -35,8 +35,8 @@ func _on_detection_area_body_exited(body):
 func grunt():
 	pass
 
-func _on_enemy_hitbox_body_entered(body):
-	if body.has_method("pierce"):
+func _on_enemy_hitbox_body_entered(area):
+	if area.has_method("pierce") || area.has_method(("stab")):
 		queue_free()
 
 func _on_enemy_hitbox_body_exited(body):
