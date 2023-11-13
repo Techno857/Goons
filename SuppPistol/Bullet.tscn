@@ -1,24 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxtatiebmk7ye"]
+[gd_scene load_steps=3 format=3 uid="uid://b3vfdxuiphb20"]
 
-[ext_resource type="Script" path="res://SuppPistol/Bullet.gd" id="1_2dwgi"]
-[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/boolet.png" id="1_pplo2"]
+[ext_resource type="Texture2D" uid="uid://dln1wy7v6salc" path="res://art/boolet.png" id="1_60nwa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mape"]
-size = Vector2(10, 13.3333)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63l3h"]
+size = Vector2(4, 3)
 
 [node name="Bullet" type="RigidBody2D"]
-texture_filter = 1
 gravity_scale = 0.0
-can_sleep = false
 lock_rotation = true
-script = ExtResource("1_2dwgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
-scale = Vector2(0.4, 0.075)
-shape = SubResource("RectangleShape2D_4mape")
+shape = SubResource("RectangleShape2D_63l3h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pplo2")
-
-[connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
+texture_filter = 1
+texture = ExtResource("1_60nwa")
