@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var pistol = $"../SupPistol"
 @onready var knife = $Knife
 @onready var knifeTimer = $Knife/knifeTimer
-
+@onready var bgm = $AudioStreamPlayer
 @onready var direction = "right"
 
 #----------Enemy_Stuff-------------#
@@ -17,6 +17,9 @@ var player_alive = true
 #--------------------------------#
 var bullet_speed = 500
 var bullet = preload("res://bullet/Bullet.tscn")
+
+func _ready():
+	bgm.play()
 
 func handleInput():
 	var moveDirection = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
@@ -106,7 +109,13 @@ func enemy_attack():
 func _on_attack_cooldown_timeout():
 	enemy_cooldown = true
 
-
 func _on_basement_entry_body_entered(body):
 	if body.has_method("handleInput"):
 		get_tree().change_scene_to_file("res://Basement/basement.tscn")
+
+
+func _on_exit_body_entered(body):
+	if body.has_method("handleInput"):
+		get_tree().change_scene_to_file("res://Scenes/EndScreen.tscn")
+
+

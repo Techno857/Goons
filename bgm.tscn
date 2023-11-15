@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://tkwxuma07hxi"]
+
+[ext_resource type="AudioStream" uid="uid://c2cy14dsho65m" path="res://vilebastards bgm.mp3" id="1_slief"]
+[ext_resource type="Script" path="res://bgm.gd" id="2_bewn2"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_slief")
+autoplay = true
+script = ExtResource("2_bewn2")

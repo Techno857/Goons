@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://boce7dumbng2j"]
+
+[ext_resource type="Script" path="res://Menu/StartScreen.gd" id="1_l3pia"]
+[ext_resource type="Texture2D" uid="uid://cjq7o2utqbi5e" path="res://art/title_screen_vile_.png" id="1_ofrgy"]
+[ext_resource type="PackedScene" uid="uid://tkwxuma07hxi" path="res://bgm.tscn" id="3_4xfg7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3pia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 334)
+scale = Vector2(1.21, 1.21)
+texture = ExtResource("1_ofrgy")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 300.0
+offset_right = 1140.0
+offset_bottom = 350.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Wuss Out"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 300.0
+offset_right = 220.0
+offset_bottom = 350.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer3/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "Start Gig"
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("3_4xfg7")]
+
+[connection signal="pressed" from="MarginContainer3/VBoxContainer/Start" to="." method="_on_start_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpsei3law0djw"]
+[gd_scene load_steps=24 format=3 uid="uid://cpsei3law0djw"]
 
 [ext_resource type="Script" path="res://Goon/goon.gd" id="1_k2qhm"]
 [ext_resource type="Texture2D" uid="uid://cec6xdthr11vm" path="res://Goon/gun_goon_walk.png" id="2_j8nwx"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d0fnd7l6y40e5" path="res://SuppPistol/suppresor.mp3" id="4_hivm2"]
 [ext_resource type="PackedScene" uid="uid://bhg5kopgf5q1l" path="res://Knife/Knife.tscn" id="4_k2llv"]
 [ext_resource type="AudioStream" uid="uid://deakkdjpvgg4d" path="res://Knife/stab.mp3" id="5_pxste"]
+[ext_resource type="PackedScene" uid="uid://tkwxuma07hxi" path="res://bgm.tscn" id="7_gbdex"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ys4p4"]
 radius = 7.0
@@ -393,6 +394,8 @@ one_shot = true
 
 [node name="KnifeStab" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_pxste")
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_gbdex")]
 
 [connection signal="area_entered" from="DoorHitbox" to="." method="_on_DoorHitBox_area_entered"]
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]

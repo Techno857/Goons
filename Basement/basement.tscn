@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://5oayxxwd1g5m"]
+[gd_scene load_steps=42 format=3 uid="uid://5oayxxwd1g5m"]
 
 [ext_resource type="Texture2D" uid="uid://j381vd6r3p44" path="res://art/a_building_i_hope_this_works_.png" id="1_ykqdq"]
 [ext_resource type="Texture2D" uid="uid://dwf16gdbemcvh" path="res://art/D (for release).png" id="2_dq0s1"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://cpsei3law0djw" path="res://Goon/goon.tscn" id="14_sixug"]
 [ext_resource type="PackedScene" uid="uid://dufxqb3wdk8jk" path="res://SuppPistol/sup_pistol.tscn" id="15_vejk1"]
 [ext_resource type="Script" path="res://world/frontdoor.gd" id="16_736y3"]
+[ext_resource type="PackedScene" uid="uid://bw1ixwgd3dk4k" path="res://Grunts/grunt.tscn" id="20_1l4g0"]
+[ext_resource type="Script" path="res://World/BasementEntry.gd" id="21_8rl4f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r6spj"]
 texture = ExtResource("1_ykqdq")
@@ -1957,6 +1959,9 @@ sources/16 = SubResource("TileSetAtlasSource_x257f")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ytxt"]
 size = Vector2(24, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aklqj"]
+size = Vector2(24, 12)
+
 [node name="World" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1972,7 +1977,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(327679, 458755, 1, 65532, 15, 3, -262148, 15, 3, 458761, 15, 3, -720910, 15, 3, -196601, 15, 65539, -131061, 15, 65539, -524279, 15, 65539, -655355, 15, 3, -393210, 15, 65539, -589829, 15, 2, -786442, 15, 2, -524298, 15, 2, -720894, 15, 2, -655346, 15, 2, -393202, 15, 2, -262136, 15, 2, 196619, 15, 2, 458746, 327683, 2, 262147, 196612, 0, -131079, 196612, 0, 458753, 262148, 0, 327675, 131076, 0, -1441821, 458755, 3, -1310749, 196611, 131075, -1376280, 8, 0, -196612, 8, 0, -196611, 65544, 0, -7, 8, 0, -6, 65544, 0, 262139, 8, 0, 262140, 65544, 0, -131059, 8, 0, -131058, 65544, 0, -786420, 8, 0, -786419, 65544, 0, -1114112, 8, 0, -1114111, 65544, 0, -1179661, 8, 0, -1179660, 65544, 0, -1048593, 8, 0, -1048592, 65544, 0, -1769468, 8, 0, -1769467, 65544, 0, -1507359, 13, 0, -1769500, 131075, 2, -1769499, 196611, 2, -1507358, 131075, 3, -589827, 15, 65539, -786438, 15, 65539, -851968, 15, 65539)
+layer_1/tile_data = PackedInt32Array(327679, 458755, 1, 65532, 15, 3, -262148, 15, 3, 458761, 15, 3, -720910, 15, 3, -196601, 15, 65539, -131061, 15, 65539, -524279, 15, 65539, -655355, 15, 3, -393210, 15, 65539, -589829, 15, 2, -786442, 15, 2, -524298, 15, 2, -720894, 15, 2, -655346, 15, 2, -393202, 15, 2, -262136, 15, 2, 196619, 15, 2, 458746, 327683, 2, 262147, 196612, 0, -131079, 196612, 0, 458753, 262148, 0, 327675, 131076, 0, -1441821, 458755, 3, -1310749, 196611, 131075, -1376280, 8, 0, -196612, 8, 0, -196611, 65544, 0, -7, 8, 0, -6, 65544, 0, 262139, 8, 0, 262140, 65544, 0, -131059, 8, 0, -131058, 65544, 0, -786420, 8, 0, -786419, 65544, 0, -1114112, 8, 0, -1114111, 65544, 0, -1179661, 8, 0, -1179660, 65544, 0, -1048593, 8, 0, -1048592, 65544, 0, -1769468, 8, 0, -1769467, 65544, 0, -1507359, 13, 0, -1769500, 131075, 2, -1769499, 196611, 2, -1507358, 131075, 3, -589827, 15, 65539, -786438, 15, 65539, -851968, 15, 65539, -2162706, 196610, 1, -2097170, 196610, 327681, -2228243, 196612, 1)
 layer_2/name = "entryDoor"
 layer_2/enabled = true
 layer_2/modulate = Color(1, 1, 1, 1)
@@ -1986,7 +1991,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array()
+layer_3/tile_data = PackedInt32Array(-2097170, 262148, 0, -2162706, 4, 1, -1966099, 4, 196609)
 
 [node name="Goon" parent="." instance=ExtResource("14_sixug")]
 position = Vector2(-48, 77)
@@ -2006,3 +2011,66 @@ script = ExtResource("16_736y3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(48, 157.5)
 shape = SubResource("RectangleShape2D_1ytxt")
+
+[node name="Grunt" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-283, -108)
+
+[node name="Grunt2" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(30, 11)
+rotation = -1.19031
+
+[node name="Grunt3" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-100, 8)
+rotation = 0.279253
+
+[node name="Grunt4" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(121, 71)
+
+[node name="Grunt5" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(206, -35)
+rotation = -2.55691
+
+[node name="Grunt6" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(203, -109)
+
+[node name="Grunt7" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(144, -187)
+rotation = -2.07694
+
+[node name="Grunt8" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-228, -191)
+rotation = 5.79973
+
+[node name="Grunt9" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-309, -399)
+
+[node name="Grunt10" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-309, -373)
+
+[node name="Grunt11" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-247, -405)
+rotation = 2.82569
+
+[node name="Grunt12" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-253, -369)
+rotation = -2.85361
+
+[node name="Grunt13" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-7.62939e-06, -407)
+rotation = 0.602139
+
+[node name="Grunt14" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-239, -307)
+
+[node name="Grunt15" parent="." instance=ExtResource("20_1l4g0")]
+position = Vector2(-387, -380)
+rotation = 1.5708
+
+[node name="Exit" type="Area2D" parent="."]
+script = ExtResource("21_8rl4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-435, -208)
+shape = SubResource("RectangleShape2D_aklqj")
+
+[connection signal="body_entered" from="Exit" to="Goon" method="_on_exit_body_entered"]

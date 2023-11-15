@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdo18r1qpllx8"
+path="res://.godot/imported/basement music.mp3-b035c959a1cb6f68b1c6ca3c0413516d.mp3str"
+
+[deps]
+
+source_file="res://basement music.mp3"
+dest_files=["res://.godot/imported/basement music.mp3-b035c959a1cb6f68b1c6ca3c0413516d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

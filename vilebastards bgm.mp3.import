@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2cy14dsho65m"
+path="res://.godot/imported/vilebastards bgm.mp3-26b9b2da2eb5696f2e3b2ed8f6da7a40.mp3str"
+
+[deps]
+
+source_file="res://vilebastards bgm.mp3"
+dest_files=["res://.godot/imported/vilebastards bgm.mp3-26b9b2da2eb5696f2e3b2ed8f6da7a40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

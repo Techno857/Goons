@@ -5,4 +5,4 @@ extends Area2D
 
 func openDoor():
 	doorClosed = false
-	tilemap.set_layer_enabled(2, false)
+	tilemap.set_layer_enabled(3, false)

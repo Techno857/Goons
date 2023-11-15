@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://j04k8spyx4nv"]
+
+[ext_resource type="Script" path="res://Scenes/endscreen.gd" id="1_hy6hk"]
+[ext_resource type="Texture2D" uid="uid://dumru7rg7nrc8" path="res://Scenes/letter_the_end_.png" id="2_yl7o2"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 1151.0
+offset_bottom = 647.0
+script = ExtResource("1_hy6hk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_yl7o2")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 222.0
+offset_bottom = 298.0
